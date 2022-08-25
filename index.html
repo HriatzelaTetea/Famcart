@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamCart</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <button onclick="topFunction()" id="backBtn" title="Go to top">&#8673;</button>
+</head>
+<script>var mybutton = document.getElementById("backBtn");
+
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }</script>
+<body>
+    <section id="Home">
+        <div id="header">
+                <a class="nav" href="#Gallery">Gallery</a>
+                <a class="nav" href="#Shop">Shop</a>
+                <div class="logo" ><a class="nav" href="#Home"><img src="img/icon.png"></a></div>
+                <a class="nav" href="#About">About</a>
+                <a class="nav" href="#Contact">Contact</a>
+        </div>
+        <script>var header = document.getElementById("header");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+              });
+            }</script>
+        <img class="bg" src="img/BG.png">
+    </section>
+    <section id="Gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+          
+                  <ul class="filter-menu">
+                      <li data-target="all">All</li>
+                      <li data-target="1">Farm</li>
+                      <li data-target="2">What We Do</li>
+                      <li data-target="3">Health Benefits</li>
+                  </ul>
+                  <ul class="filter-item">
+                      <li data-item="1"><img src="img/gallery/farm1.png"></li>
+                      <li data-item="1"><img src="img/gallery/farm2.png"></li>
+                      <li data-item="1"><img src="img/gallery/farm3.png"></li>
+                      <li data-item="2"><img src="img/gallery/do1.png"></li>
+                      <li data-item="2"><img src="img/gallery/do2.png"></li>
+                      <li data-item="2"><img src="img/gallery/do3.png"></li>
+                      <li data-item="2"><img src="img/gallery/do4.png"></li>
+                      <li data-item="3"><img src="img/gallery/hb1.png"></li>
+                  </ul>
+        </div>
+        <script>
+            let sortBtn = document.querySelector('.filter-menu').children;
+            let sortItem = document.querySelector('.filter-item').children;
+            
+            for(let i = 0; i < sortBtn.length; i++){
+                sortBtn[i].addEventListener('click', function(){
+                    for(let j = 0; j< sortBtn.length; j++){
+                        sortBtn[j].classList.remove('current');
+                    }
+            
+                    this.classList.add('current');
+                    
+            
+                    let targetData = this.getAttribute('data-target');
+            
+                    for(let k = 0; k < sortItem.length; k++){
+                        sortItem[k].classList.remove('active');
+                        sortItem[k].classList.add('delete');
+            
+                        if(sortItem[k].getAttribute('data-item') == targetData || targetData == "all"){
+                            sortItem[k].classList.remove('delete');
+                            sortItem[k].classList.add('active');
+                        }
+                    }
+                });
+            }</script>
+    </section>
+    <section id="Shop">
+            <h2>Shop With US</h2>
+                <div class="shopcontainer">
+                        <div class="shopimage">
+                             <img src="img/gallery/shop1.png" alt=""class="image">
+                        </div>
+                        <div class="shopimage">
+                            <img src="img/gallery/shop2.png" alt=""class="image">
+                        </div>
+                        <div class="shopimage">
+                            <img src="img/gallery/shop3.png" alt=""class="image">
+                        </div>
+                        <div class="shopimage">
+                            <img src="img/gallery/shop4.png" alt=""class="image">
+                        </div>
+                </div>
+                <p>
+                    You can shop with us through our apps. Link is down below.
+                </p>
+                <div class="app">
+                <div>
+                    <a target="_blank" href='https://play.google.com/store/apps/details?id=in.famcart.famcart&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="240" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                </div>
+                <div>
+                    <a href="https://apps.apple.com/in/app/famcart/id1622178546"><img width="190" alt='Get it on App Store' src='img/app_store_badge.svg'/></a>
+                </div>
+                </div>
+    </section>
+    <section id="About">
+        <div class="containers">
+            <div class="left">
+                <h1>About</h1>
+                <br>
+                <p>FamCart ia all about Building An Efficient Fresh Vegetable Supply Chain In Mizoram</p>
+            </div>
+            <div class="right">
+                <div class="slideshow-container">
+
+                    <div class="mySlides">
+                      <img src="img/gallery/do2.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides">
+                      <img src="img/gallery/do1.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides">
+                      <img src="img/gallery/do3.png" style="width:100%">
+                    </div>
+                    
+                    </div>
+                    <script>let slideIndex = 0;
+                        showSlides();
+                        
+                        function showSlides() {
+                          let i;
+                          let slides = document.getElementsByClassName("mySlides");
+                          for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";  
+                          }
+                          slideIndex++;
+                          if (slideIndex > slides.length) {slideIndex = 1}    
+                          slides[slideIndex-1].style.display = "block";  
+                          setTimeout(showSlides, 2000);
+                        }</script>
+            </div>
+    </section>
+    <section id="Contact">
+       
+    </section>
+    
+</body>
+</html>
