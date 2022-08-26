@@ -10,42 +10,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <button onclick="topFunction()" id="backBtn" title="Go to top">&#8673;</button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<script>var mybutton = document.getElementById("backBtn");
-
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }</script>
+<script>
+</script>
 <body>
     <section id="Home">
-        <div id="header">
-                <a class="nav" href="#Gallery">Gallery</a>
-                <a class="nav" href="#Shop">Shop</a>
-                <div class="logo" ><a class="nav" href="#Home"><img src="img/icon.png"></a></div>
-                <a class="nav" href="#About">About</a>
-                <a class="nav" href="#Contact">Contact</a>
+        <div id="header" class="nav">
+                <a class="navs" href="#Gallery">Gallery</a>
+                <a class="navs" href="#Shop">Shop</a>
+                <div class="logo" ><a class="navs active" href="#Home"><img src="img/icon.png"></a></div>
+                <a class="navs" href="#About">About</a>
+                <a class="navs" href="#Contact">Contact</a>
+    <a class="navs"onclick="topFunction()" id="backBtn" title="Go to top" href="#Home">&#8673;</a>
         </div>
-        <script>var header = document.getElementById("header");
-            var btns = header.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-              btns[i].addEventListener("click", function() {
-              var current = document.getElementsByClassName("active");
-              current[0].className = current[0].className.replace(" active", "");
-              this.className += " active";
-              });
-            }</script>
         <img class="bg" src="img/BG.png">
+<script>
+let head = document.getElementById("header");
+let navs = head.getElementsByClassName("navs");
+    for (let i = 0; i < navs.length; i++) {navs[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+}
+var mybutton = document.getElementById("backBtn");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+</script>
     </section>
     <section id="Gallery">
         <div class="container">
@@ -68,32 +70,25 @@
                       <li data-item="3"><img src="img/gallery/hb1.png"></li>
                   </ul>
         </div>
-        <script>
-            let sortBtn = document.querySelector('.filter-menu').children;
-            let sortItem = document.querySelector('.filter-item').children;
-            
-            for(let i = 0; i < sortBtn.length; i++){
-                sortBtn[i].addEventListener('click', function(){
-                    for(let j = 0; j< sortBtn.length; j++){
-                        sortBtn[j].classList.remove('current');
-                    }
-            
-                    this.classList.add('current');
-                    
-            
-                    let targetData = this.getAttribute('data-target');
-            
-                    for(let k = 0; k < sortItem.length; k++){
-                        sortItem[k].classList.remove('active');
-                        sortItem[k].classList.add('delete');
-            
-                        if(sortItem[k].getAttribute('data-item') == targetData || targetData == "all"){
-                            sortItem[k].classList.remove('delete');
-                            sortItem[k].classList.add('active');
-                        }
-                    }
-                });
-            }</script>
+<script>            
+let Btn = document.querySelector('.filter-menu').children;
+let Item = document.querySelector('.filter-item').children;
+    for(let i = 0; i < Btn.length; i++){
+        Btn[i].addEventListener('click', function(){
+    for(let j = 0; j< Btn.length; j++){
+        Btn[j].classList.remove('current');}
+        this.classList.add('current');            
+        let targetData = this.getAttribute('data-target');
+    for(let k = 0; k < Item.length; k++){
+        Item[k].classList.remove('active');
+        Item[k].classList.add('delete');
+    if(Item[k].getAttribute('data-item') == targetData || targetData == "all"){
+        Item[k].classList.remove('delete');
+        Item[k].classList.add('active');
+        }
+    }
+});}
+</script>
     </section>
     <section id="Shop">
             <h2>Shop With US</h2>
@@ -136,35 +131,41 @@
                     <div class="mySlides">
                       <img src="img/gallery/do2.png" style="width:100%">
                     </div>
-                    
                     <div class="mySlides">
                       <img src="img/gallery/do1.png" style="width:100%">
                     </div>
-                    
                     <div class="mySlides">
                       <img src="img/gallery/do3.png" style="width:100%">
                     </div>
-                    
                     </div>
-                    <script>let slideIndex = 0;
-                        showSlides();
-                        
-                        function showSlides() {
-                          let i;
-                          let slides = document.getElementsByClassName("mySlides");
-                          for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";  
-                          }
-                          slideIndex++;
-                          if (slideIndex > slides.length) {slideIndex = 1}    
-                          slides[slideIndex-1].style.display = "block";  
-                          setTimeout(showSlides, 2000);
-                        }</script>
+<script>
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+let i;
+let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 2000);}
+</script>
             </div>
     </section>
     <section id="Contact">
+        <div class="contact">
        
+        <div class="social">
+            <p>You can contact us through:</p>
+            <a href="https://www.instagram.com/fam_cart" class="fa fa-instagram" ></a>
+            <a href="https://wa.me/+919612766079" class="fa fa-whatsapp" ></a>
+            <a href="https://www.facebook.com/famcart.fresh" class="fa fa-facebook-square" ></a>
+            </div>
+        
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.2443538302445!2d92.72422351408753!3d23.75060069367482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374deb7411d75f67%3A0xd48f22f550c7b401!2sFam%20Cart!5e0!3m2!1sen!2sin!4v1661514240908!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </section>
-    
 </body>
 </html>
