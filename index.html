@@ -50,15 +50,14 @@ function topFunction() {
 </script>
     </section>
     <section id="Gallery">
-        <div class="container">
             <h2>Gallery</h2>
-          
                   <ul class="filter-menu">
                       <li data-target="all">All</li>
                       <li data-target="1">Farm</li>
                       <li data-target="2">What We Do</li>
                       <li data-target="3">Health Benefits</li>
                   </ul>
+            <div class="container">
                   <ul class="filter-item">
                       <li data-item="1"><img src="img/gallery/farm1.png"></li>
                       <li data-item="1"><img src="img/gallery/farm2.png"></li>
@@ -68,6 +67,10 @@ function topFunction() {
                       <li data-item="2"><img src="img/gallery/do3.png"></li>
                       <li data-item="2"><img src="img/gallery/do4.png"></li>
                       <li data-item="3"><img src="img/gallery/hb1.png"></li>
+                      <li data-item="3"><img src="img/gallery/hb1.png"></li>
+                      <li data-item="3"><img src="img/gallery/hb1.png"></li>
+                      <li data-item="3"><img src="img/gallery/hb1.png"></li>
+
                   </ul>
         </div>
 <script>            
@@ -129,13 +132,13 @@ let Item = document.querySelector('.filter-item').children;
                 <div class="slideshow-container">
 
                     <div class="mySlides">
-                      <img src="img/gallery/do2.png" style="width:100%">
+                      <img src="img/gallery/do2.png" style="width:90%">
                     </div>
                     <div class="mySlides">
-                      <img src="img/gallery/do1.png" style="width:100%">
+                      <img src="img/gallery/do1.png" style="width:90%">
                     </div>
                     <div class="mySlides">
-                      <img src="img/gallery/do3.png" style="width:100%">
+                      <img src="img/gallery/do3.png" style="width:90%">
                     </div>
                     </div>
 <script>
@@ -150,7 +153,7 @@ let slides = document.getElementsByClassName("mySlides");
 slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}    
     slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 2000);}
+    setTimeout(showSlides, 3000);}
 </script>
             </div>
     </section>
